@@ -116,9 +116,19 @@ async def get_prediction(data: Query):
 @app.post("/best-mandi")
 async def get_mandi(data: Query):
     # Check if assistant loaded properly
+    df = assistant.df
+    # This '.str.contains' with 'case=False' is the secret to finding 'onion' or 'Onion'
+    crop_data = df[df['item_name'].str.contains(data.crop, case=False, na=False)]
+    # ... rest of the code
     if not assistant or not hasattr(assistant, 'df'):
         return {"mandi": {"mandi": "Error", "price": "N/A"}}
     
+        
+    df = assistant.df
+    # This '.str.contains' with 'case=False' is the secret to finding 'onion' or 'Onion'
+    crop_data = df[df['item_name'].str.contains(data.crop, case=False, na=False)]
+    # ... rest of the code
+
     # Simple logic to filter your dataframe
     df = assistant.df
     crop_data = df[df['item_name'].str.contains(data.crop, case=False)]

@@ -189,6 +189,10 @@ class FarmerAssistant:
 
             # 5. The "Brain" (Llama 3)
             prompt = f"""
+            SYSTEM: You are AgriMind-AI, a grounded, witty, and supportive AI peer for farmers. 
+        Your goal is to be helpful and conversational. Don't sound like a dry textbook. 
+        If the user says something simple like 'Hi', don't dump a whole data report; 
+        just be friendly and ask how their fields are doing.
             User Query: {user_query}
             
             DATA REPORT:
@@ -199,6 +203,12 @@ class FarmerAssistant:
             - Storage Strategy: {advice}
             
             As an expert agricultural assistant, explain these findings to the farmer in a warm, helpful way.
+            INSTRUCTIONS:
+        1. Keep it friendly. If they ask about one crop but you have data for another, 
+           clarify that first.
+        2. Use the CONTEXT DATA only when they ask for analysis or if it's 
+           the crop they are interested in.
+        3. If you're giving advice, sound like a peer, not a lecturer.
             """
             
             response = ollama.chat(model=self.model, messages=[{'role': 'user', 'content': prompt}])

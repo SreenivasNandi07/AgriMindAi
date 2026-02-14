@@ -127,10 +127,15 @@
             <div class="glass p-6 rounded-2xl">
                 <p class="text-gray-400 text-sm">Target Crop</p>
                 <select id="crop-select" class="bg-transparent text-2xl font-bold text-white outline-none mt-1">
-                    <option value="Wheat" class="bg-gray-900">Wheat</option>
-                    <option value="Rice" class="bg-gray-900">Rice</option>
-                    <option value="Cotton" class="bg-gray-900">Cotton</option>
-                </select>
+    <option value="Wheat" class="bg-gray-900">Wheat</option>
+    <option value="Rice" class="bg-gray-900">Rice</option>
+    <option value="Cotton" class="bg-gray-900">Cotton</option>
+    <option value="Maize" class="bg-gray-900">Maize</option>
+    <option value="Gram" class="bg-gray-900">Gram</option>
+    <option value="Jowar" class="bg-gray-900">Jowar</option>
+</select>
+
+
             </div>
             <div id="mandi-card" class="glass p-6 rounded-2xl border-l-4 border-blue-500">
                 <p class="text-gray-400 text-sm">Best Mandi</p>
@@ -211,7 +216,7 @@
             .then(data => updateChart(data.prediction));
 
             // B. Mandi Stats
-            fetch('/best-mandi', {
+                fetch('/best-mandi', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({crop, query})
@@ -279,6 +284,15 @@
                     plugins: { legend: { display: false } }
                 }
             });
+        }
+        function updateMandiUI(mandiData) {
+            const mandiText = document.getElementById('best-mandi-text');
+            // Check if mandiData exists and has the nested 'mandi' property from Python
+            if (mandiData && mandiData.mandi) {
+                mandiText.innerHTML = `${mandiData.mandi} <span class="text-green-400 text-sm">₹${mandiData.price}</span>`;
+            } else {
+                mandiText.innerText = "No Data Found";
+            }
         }
     </script>
 </body>
