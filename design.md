@@ -1,4 +1,4 @@
-# AgriMind AI - Design
+# KrishiMitra - Design
 
 ## 1. System Architecture
 
@@ -23,7 +23,7 @@
                                   +------------------+
                                   | Ollama LLM Model |
                                   +------------------+
-                                  
+
 
 - **Frontend (Streamlit UI):** Dashboard with tabs for AI queries, price predictor, best mandi, demand trend, and storage advisor.
 - **Backend (FastAPI):** Receives requests, handles crop detection, ML predictions, and query routing.

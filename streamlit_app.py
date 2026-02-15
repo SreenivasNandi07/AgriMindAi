@@ -48,7 +48,7 @@ tabs = st.tabs([
 # 🤖 AI Assistant
 # -------------------------
 with tabs[0]:
-    st.subheader("Ask AgriMind AI")
+    st.subheader("Ask KrishiMitra AI")
 
     # 🌐 Language selector
     language = st.selectbox("Choose language", ["English", "Hindi", "Telugu"], index=0)
