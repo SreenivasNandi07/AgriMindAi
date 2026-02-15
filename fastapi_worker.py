@@ -10,7 +10,7 @@ from vectorstore import KnowledgeBase
 app = FastAPI(title="AgriMind AI API")
 
 # Setup connections
-MONGO_URI = "mongodb+srv://farmer_admin:Roronoa123@newmain.t1vt5ne.mongodb.net/?appName=NewMain/" 
+MONGO_URI = "" 
 mongo = MongoHandler(MONGO_URI)
 kb = KnowledgeBase()
 assistant = create_farmer_agent(mongo, kb)
