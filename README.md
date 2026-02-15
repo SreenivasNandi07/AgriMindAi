@@ -9,5 +9,5 @@ It combines:
 
 ## In data folder change the csv files to work on various datasets like that. Get similar datasets here 
 - https://www.kaggle.com/datasets/khandelwalmanas/daily-commodity-prices-india
-This website is built using python and used ollama 3.1 version. 
+
 
